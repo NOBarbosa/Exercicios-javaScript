@@ -1,0 +1,35 @@
+//Nessa sequência de exercícios vamos simular a parte da lógica de um processo simples de checkout num e-commerce.
+//a) Declare uma função de nome imprimirResumoDoCarrinho que tenha apenas um parâmetro chamado carrinho.
+//b) Sabendo que o parâmetro carrinho será sempre um objeto com o seguinte formato:
+const carrinho = {
+    nomeDoCliente: "Guido Bernal",
+    produtos: [
+        {
+            id: 1,
+            nome: "Camisa",
+            qtd: 3,
+            precoUnit: 3000
+        },
+        {
+            id: 2,
+            nome: "Bermuda",
+            qtd: 2,
+            precoUnit: 5000
+        }
+    ]
+}
+//Implemente a função imprimirResumoDoCarrinho de modo que, ao receber um objeto como este como parâmetro, o resultado seja o seguinte.
+// Cliente: Guido Bernal
+// Total de itens: 5 itens
+// Total a pagar: R$ 190,00
+function imprimirResumoDoCarrinho(carrinho){
+    let totalItens = 0;
+    let totalPagar = 0;
+    for(let item of carrinho.produtos){
+         totalItens += item.qtd;
+         totalPagar += item.qtd * item.precoUnit;
+    }
+    console.log(` Cliente: ${carrinho.nomeDoCliente}\n Total de itens: ${totalItens} itens\n Total a pagar: R$ ${(totalPagar/100).toFixed(2)}`);
+};
+
+imprimirResumoDoCarrinho(carrinho);
